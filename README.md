@@ -1,46 +1,91 @@
-Screenshots 
-![Screenshot1](./screenshot.png)
-![Screenshot2](./screenshot2.png)
-
 # NeuroSignals
 
-**NeuroSignals**  is an interactive real-time neural signal visualizer built with React, TypeScript, WebGL/Three.js, and custom signal-simulation logic.
-It showcases engineering strengths across data streaming, UI architecture, 3D rendering, and complex state management.
+Screenshots 
+![Screenshot1](./screenshot1.png)
+![Screenshot2](./screenshot2.png)
 
-This project was built as both a technical exploration into signal-processing simulations and a demonstration of front-end engineering capability: responsive UI systems, performant canvas rendering, modern React patterns, and clean component architecture.
+[![Live Demo](https://img.shields.io/badge/Live-Demo-blue?style=for-the-badge&logo=react&logoColor=white)](https://neurosignals.app) 
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Repo-black?style=for-the-badge&logo=github)](https://github.com/RLPedro/neuro-signals)
 
+**NeuroSignals** is a real-time simulated brainwave visualizer — a full-stack web app that streams EEG-like data over WebSockets and renders it instantly as both a classic 2D oscilloscope and a fully interactive 3D brain model.
 
-## Live Demo
-https://political-discourse-news-web.vercel.app/
-
+Built to feel like a clinical neuro-monitoring tool, it includes realistic anomaly detection that lights up brain regions with confidence scores and places precise electrode markers when “events” occur.
 
 ## Features
 
-### 🎛 Real-Time Streaming Architecture
+- Real-time simulated EEG streaming (4 channels @ 160 Hz)  
+- 2D oscilloscope with 6-second history buffer and diagnostics  
+- Interactive 3D brain (GLTF) with orbit controls, anomaly glow, and surface-snapped electrode markers  
+- Simulated clinical events (sharp waves, theta bursts, spike-and-wave, etc.) with 0–99 % confidence  
+- Full session recording → export as JSON → perfect replay  
+- All data stays in-browser (zero server storage, zero auth)  
+- Mobile-first responsive design (touch rotation/zoom, portrait layout, thumb-friendly controls)  
+- 60 fps rendering using RAF + persistent buffers  
 
-- **Live simulated neural signals** displayed on a 2D canvas (oscilloscope)  
-- **3D brain visualization** using Three.js / React Three Fiber (or similar) to render a brain model  
-- **Recording**: Start and stop recording live session data  
-- **Replay** previously recorded sessions  
-- **Export** session data (e.g. JSON)  
-- **Clear** the current session data  
+## Tech Stack
 
+| Layer             | Tech                                                                 |
+|-------------------|----------------------------------------------------------------------|
+| Frontend          | React 18 + TypeScript + Vite + Tailwind CSS                          |
+| 3D                | Three.js + @react-three/fiber + @react-three/drei                    |
+| State             | React Context (NeuroStreamContext)                                   |
+| Backend           | Node.js + Express + WebSocket (ws)                                   |
+| Bundler           | Vite                                                                 |
 
-### 🧠 WebGL 3D Brain Rendering
+## Quick Start
 
-- Interactive 3D brain model 
-- Custom scene + lighting in Three.js / React Three Fiber
-- Dynamic markers for anomaly locations
-- GPU-accelerated rendering integrated seamlessly into React
+```bash
+# Clone
+git clone https://github.com/RLPedro/neuro-signals.git
+cd neuro-signals
 
+# Frontend
+cd client
+npm install
+npm run dev          # → http://localhost:5173
 
-### 🛠 Tech Stack
+# Backend (new terminal)
+cd ../server
+npm install
+npm run dev          # → ws://localhost:4000
+Open http://localhost:5173 → the live stream starts automatically.
+Demo Flow
 
-- React + TypeScript + Vite + TailwindCSS
-- Three.js / React Three Fiber (3D brain) + Canvas API (custom renderer for waveform display)
-- Web Socket
+Click Start Rec → capture begins
+Watch the 2D scope and/or toggle to 3D
+Every 6–10 s a simulated clinical anomaly fires → brain glows + markers appear
+Export → download the full session as JSON
+Replay → bit-perfect playback with 3D activations
 
+Mobile
 
-### 📜 License
+Touch-optimized OrbitControls (pinch-zoom + drag rotate)
+Portrait-first layout (taller canvas)
+Sticky header with large tap targets
+Works perfectly on iPhone (notch-safe) and Android Chrome
 
-MIT — feel free to explore, fork, and build on this.
+Project Structure
+textneuro-signals/
+├── client/               # React + Vite frontend
+│   ├── src/
+│   │   ├── components/   # SignalCanvas, BrainScene, HeaderControls…
+│   │   ├── context/      # NeuroStreamContext (state + recording logic)
+│   │   ├── hooks/        # useWebSocketStream
+│   │   └── pages/        # SignalsPage (main UI)
+├── server/               # Node.js + WebSocket EEG simulator
+├── README.md
+└── LICENSE
+Customization
+
+Replace client/public/models/brain.glb with any GLTF brain → markers auto-snap via raycasting
+Edit the scenarios array in NeuroStreamContext.tsx for new anomaly types
+Change colors, sample rate, or channel count in a few lines
+
+Contributing
+
+Fork → create a feature branch
+Commit → push → open a PR
+Ideas: real ML inference with TensorFlow.js, more clinical patterns, real device support, etc.
+
+License
+MIT © Ricardo Pedro
