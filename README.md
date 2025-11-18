@@ -48,24 +48,26 @@ npm run dev          # → http://localhost:5173
 cd ../server
 npm install
 npm run dev          # → ws://localhost:4000
+```
+
 Open http://localhost:5173 → the live stream starts automatically.
-Demo Flow
 
-Click Start Rec → capture begins
-Watch the 2D scope and/or toggle to 3D
-Every 6–10 s a simulated clinical anomaly fires → brain glows + markers appear
-Export → download the full session as JSON
-Replay → bit-perfect playback with 3D activations
+### Demo Flow
+1. Click **Start Rec** → recording begins  
+2. Watch the 2D oscilloscope and/or toggle to **3D**  
+3. Every 6–10 s a simulated clinical anomaly fires → brain glows + electrode markers appear  
+4. **Export** → download the full session as JSON  
+5. **Replay** → bit-perfect playback with exact 3D activations  
 
-Mobile
+## Mobile
 
-Touch-optimized OrbitControls (pinch-zoom + drag rotate)
-Portrait-first layout (taller canvas)
-Sticky header with large tap targets
-Works perfectly on iPhone (notch-safe) and Android Chrome
+- Touch-optimized OrbitControls (pinch-zoom + drag rotate)  
+- Portrait-first layout with taller canvas  
+- Sticky header with large, thumb-friendly tap targets  
+- Works perfectly on iPhone (notch-safe) and Android Chrome  
 
-Project Structure
-textneuro-signals/
+## Project Structure
+neuro-signals/
 ├── client/               # React + Vite frontend
 │   ├── src/
 │   │   ├── components/   # SignalCanvas, BrainScene, HeaderControls…
@@ -75,17 +77,18 @@ textneuro-signals/
 ├── server/               # Node.js + WebSocket EEG simulator
 ├── README.md
 └── LICENSE
-Customization
+text## Customization
 
-Replace client/public/models/brain.glb with any GLTF brain → markers auto-snap via raycasting
-Edit the scenarios array in NeuroStreamContext.tsx for new anomaly types
-Change colors, sample rate, or channel count in a few lines
+- Replace `client/public/models/brain.glb` with any GLTF brain → markers auto-snap via raycasting  
+- Edit the `scenarios` array in `NeuroStreamContext.tsx` for new anomaly types  
+- Change colors, sample rate, or channel count in just a few lines  
 
-Contributing
+## Contributing
 
-Fork → create a feature branch
-Commit → push → open a PR
-Ideas: real ML inference with TensorFlow.js, more clinical patterns, real device support, etc.
+1. Fork → create a feature branch  
+2. Commit → push → open a PR  
+3. Ideas: real ML inference with TensorFlow.js, more clinical patterns, real device support, etc.
 
-License
-MIT © Ricardo Pedro
+## License
+
+MIT © [Ricardo Pedro](https://github.com/RLPedro)
