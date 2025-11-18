@@ -10,6 +10,8 @@ Built to feel like a clinical neuro-monitoring tool, it includes realistic anoma
 ## Live Demo
 https://neuro-signals.onrender.com/
 
+- **Frontend** and **Backend** (Web Socket): Render
+
 ## Features
 
 - Real-time simulated EEG streaming (4 channels @ 160 Hz)  
