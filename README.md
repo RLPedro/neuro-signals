@@ -66,21 +66,6 @@ Open http://localhost:5173 → the live stream starts automatically.
 - Sticky header with large, thumb-friendly tap targets  
 - Works perfectly on iPhone (notch-safe) and Android Chrome  
 
-## Project Structure
-neuro-signals/
-├── client/                 # React frontend
-│   ├── src/
-│   │   ├── components/     # UI components (SignalCanvas, BrainScene)
-│   │   ├── context/        # NeuroStreamContext (state management)
-│   │   ├── hooks/          # useWebSocketStream
-│   │   └── pages/          # SignalsPage (main app)
-│   └── vite.config.ts      # Vite build config
-├── server/                 # Node.js backend
-│   ├── src/                # Express + WebSocket server
-│   └── package.json        # Dependencies (express, ws)
-├── README.md               # This file
-└── package.json            # Monorepo scripts (if using)
-
 ## Customization
 
 - Replace `client/public/models/brain.glb` with any GLTF brain → markers auto-snap via raycasting  
