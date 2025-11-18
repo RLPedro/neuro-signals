@@ -67,16 +67,19 @@ Open http://localhost:5173 → the live stream starts automatically.
 - Works perfectly on iPhone (notch-safe) and Android Chrome  
 
 ## Project Structure
-textneuro-signals/
-├── client/               # React + Vite frontend
+neuro-signals/
+├── client/                 # React frontend
 │   ├── src/
-│   │   ├── components/   # SignalCanvas, BrainScene, HeaderControls…
-│   │   ├── context/      # NeuroStreamContext (state + recording logic)
-│   │   ├── hooks/        # useWebSocketStream
-│   │   └── pages/        # SignalsPage (main UI)
-├── server/               # Node.js + WebSocket EEG simulator
-├── README.md
-└── LICENSE
+│   │   ├── components/     # UI components (SignalCanvas, BrainScene)
+│   │   ├── context/        # NeuroStreamContext (state management)
+│   │   ├── hooks/          # useWebSocketStream
+│   │   └── pages/          # SignalsPage (main app)
+│   └── vite.config.ts      # Vite build config
+├── server/                 # Node.js backend
+│   ├── src/                # Express + WebSocket server
+│   └── package.json        # Dependencies (express, ws)
+├── README.md               # This file
+└── package.json            # Monorepo scripts (if using)
 
 ## Customization
 
