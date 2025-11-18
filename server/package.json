@@ -1,6 +1,7 @@
 {
   "name": "neuro-signals-server",
   "version": "0.1.0",
+  "main": "dist/index.js",
   "private": true,
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",

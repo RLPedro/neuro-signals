@@ -17,9 +17,13 @@ type SessionEntry = {
 
 const sessions: Map<string, SessionEntry> = new Map();
 
+const WS_URL = import.meta.env.PROD 
+  ? "://neuro-signals-server.onrender.com" 
+  : "://localhost:4000";
+
 const buildWsUrl = (sessionId: string) => {
   const scheme = location.protocol === "https:" ? "wss" : "ws";
-  return `${scheme}://localhost:4000/ws?sessionId=${encodeURIComponent(sessionId)}`;
+  return `${scheme}${WS_URL}/ws?sessionId=${encodeURIComponent(sessionId)}`;
 }
 
 const createSocketForEntry = (sessionId: string, entry: SessionEntry) => {
