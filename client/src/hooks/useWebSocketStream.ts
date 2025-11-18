@@ -17,12 +17,14 @@ type SessionEntry = {
 
 const sessions: Map<string, SessionEntry> = new Map();
 
-const isProd = location.hostname !== "localhost" && location.hostname !== "127.0.0.1";
+const isDev = 
+  typeof window !== "undefined" && 
+  (location.hostname === "localhost" || location.hostname === "127.0.0.1");
 
-const WS_URL = isProd
-  ? `wss://neuro-signals-server.onrender.com`
-  : "ws://localhost:4000";
-
+const WS_URL = isDev
+  ? "ws://localhost:4000"
+  : "wss://neuro-signals-server.onrender.com";
+  
 const buildWsUrl = (sessionId: string) => {
   return `${WS_URL}/ws?sessionId=${encodeURIComponent(sessionId)}`;
 };
@@ -30,13 +32,11 @@ const buildWsUrl = (sessionId: string) => {
 const createSocketForEntry = (sessionId: string, entry: SessionEntry) => {
   if (entry.ws || entry.refCount <= 0) return;
   const url = buildWsUrl(sessionId);
-  console.info("[WS:manager] create socket ->", url);
   const ws = new WebSocket(url);
   entry.ws = ws;
 
   ws.onopen = () => {
     entry.lastOpenTs = Date.now();
-    console.info("[WS:manager] open", url);
     if (entry.heartbeatTimer) clearInterval(entry.heartbeatTimer);
     entry.heartbeatTimer = window.setInterval(() => {
       try {
@@ -131,6 +131,7 @@ export const useWebSocketStream = (sessionId: string) => {
         console.warn("[WS:hook] anomaly", (msg as NeuroMessageAnomaly).score, msg);
       }
     };
+
     const onOpen = () => {
       console.info("[WS:hook] session open", sessionId);
     };

@@ -91,7 +91,6 @@ export const NeuroStreamProvider = ({ children }: { children: ReactNode }) => {
       };
 
       setAnomalies(prev => [...prev.slice(-20), anomaly]);
-      console.log(`[CLINICAL EVENT] ${anomaly.meta.name} | Score: ${anomaly.score.toFixed(2)} | ${anomaly.meta.description}`);
     }, 6500 + Math.random() * 4000);
 
     return () => clearInterval(interval);

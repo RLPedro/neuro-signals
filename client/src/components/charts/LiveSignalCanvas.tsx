@@ -111,7 +111,6 @@ export const SignalCanvas: React.FC = () => {
       const now = Date.now();
       if (now - lastSummaryTs.current > 1000) {
         lastSummaryTs.current = now;
-        console.info(`[SIGCANVAS] summary channels=${labels.length} lastAppendΔ=${lastAppendRef.current ? now - lastAppendRef.current : -1}ms visible=${visible} rect=${rectW}x${rectH}`);
       }
 
       raf = requestAnimationFrame(draw);
