@@ -17,10 +17,6 @@ export const SessionControlsInfo: React.FC = () => {
           </div>
         </div>
       </div>
-
-      <div className="lg:hidden text-center py-6 text-xs text-gray-500" aria-hidden={false}>
-        Export • Replay • Clear — all data stays in this tab only
-      </div>
     </>
   );
 };

@@ -38,9 +38,9 @@ const BrainMesh = () => {
 
 export const BrainScene = () => {
   return (
-    <div className="bg-white rounded-2xl shadow p-4 h-[360px]">
-      <h2 className="font-semibold mb-2 text-sm">3D Brain View (Three.js)</h2>
-      <div className="w-full h-[300px] rounded-lg overflow-hidden bg-slate-950">
+    <div className="bg-white rounded-2xl shadow p-4">
+      <h2 className="font-semibold mb-2 text-sm">3D Brain View</h2>
+      <div className="w-full h-72 md:h-[18rem] rounded-md overflow-hidden bg-slate-900">
         <Canvas camera={{ position: [0, 0, 3] }}>
           <ambientLight intensity={0.4} />
           <directionalLight position={[2, 2, 2]} intensity={0.8} />

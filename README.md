@@ -60,24 +60,11 @@ Open http://localhost:5173 → the live stream starts automatically.
 4. **Export** → download the full session as JSON  
 5. **Replay** → bit-perfect playback with exact 3D activations  
 
-## Mobile
-
-- Touch-optimized OrbitControls (pinch-zoom + drag rotate)  
-- Portrait-first layout with taller canvas  
-- Sticky header with large, thumb-friendly tap targets  
-- Works perfectly on iPhone (notch-safe) and Android Chrome  
-
 ## Customization
 
 - Replace `client/public/models/brain.glb` with any GLTF brain → markers auto-snap via raycasting  
 - Edit the `scenarios` array in `NeuroStreamContext.tsx` for new anomaly types  
 - Change colors, sample rate, or channel count in just a few lines  
-
-## Contributing
-
-1. Fork → create a feature branch  
-2. Commit → push → open a PR  
-3. Ideas: real ML inference with TensorFlow.js, more clinical patterns, real device support, etc.
 
 ## License
 

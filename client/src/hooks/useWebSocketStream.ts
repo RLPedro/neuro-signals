@@ -177,7 +177,7 @@ export const useWebSocketStream = (sessionId: string) => {
             console.info("[WS:manager] subscribers arrived during grace period; keeping socket");
           }
           entry.pendingClose = null;
-        }, 500); // grace period
+        }, 1000); // grace period
       }
     };
   }, [sessionId]);
