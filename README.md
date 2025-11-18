@@ -67,7 +67,7 @@ Open http://localhost:5173 → the live stream starts automatically.
 - Works perfectly on iPhone (notch-safe) and Android Chrome  
 
 ## Project Structure
-neuro-signals/
+textneuro-signals/
 ├── client/               # React + Vite frontend
 │   ├── src/
 │   │   ├── components/   # SignalCanvas, BrainScene, HeaderControls…
