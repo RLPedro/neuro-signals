@@ -17,14 +17,11 @@ type SessionEntry = {
 
 const sessions: Map<string, SessionEntry> = new Map();
 
-const isDev = 
-  typeof window !== "undefined" && 
-  (location.hostname === "localhost" || location.hostname === "127.0.0.1");
+const WS_HOST = "neuro-signals-server.onrender.com";
+const WS_SCHEME = "wss";
 
-const WS_URL = isDev
-  ? "ws://localhost:4000"
-  : "wss://neuro-signals-server.onrender.com";
-  
+const WS_URL = `${WS_SCHEME}://${WS_HOST}`;
+
 const buildWsUrl = (sessionId: string) => {
   return `${WS_URL}/ws?sessionId=${encodeURIComponent(sessionId)}`;
 };
