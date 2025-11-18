@@ -1,6 +1,5 @@
 # NeuroSignals
 
-Screenshots 
 ![Screenshot1](./screenshot1.png)
 ![Screenshot2](./screenshot2.png)
 
@@ -9,7 +8,7 @@ Screenshots
 Built to feel like a clinical neuro-monitoring tool, it includes realistic anomaly detection that lights up brain regions with confidence scores and places precise electrode markers when “events” occur.
 
 ## Live Demo
-![https://neuro-signals.onrender.com](https://neuro-signals.onrender.com/) 
+https://neuro-signals.onrender.com/
 
 ## Features
 
