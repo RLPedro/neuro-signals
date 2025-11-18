@@ -15,6 +15,13 @@ app.get("/", (_req, res) => {
 const server = http.createServer(app);
 const wss = new WebSocketServer({ server, path: "/ws" });
 
+const PORT = process.env.PORT || 4000;
+
+server.listen(PORT, () => {
+  console.log(`HTTP server on http://localhost:${PORT}`);
+  console.log(`WS server on ws://localhost:${PORT}/ws`);
+});
+
 wss.on("connection", (ws, req) => {
   const url = new URL(req.url ?? "", `http://${req.headers.host}`);
   const sessionId = url.searchParams.get("sessionId") ?? "default";
@@ -55,8 +62,4 @@ wss.on("connection", (ws, req) => {
 });
 
 
-const PORT = process.env.PORT || 4000;
-server.listen(PORT, () => {
-  console.log(`HTTP server on http://localhost:${PORT}`);
-  console.log(`WS server on ws://localhost:${PORT}/ws`);
-});
+
