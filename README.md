@@ -8,7 +8,7 @@
 Built to feel like a clinical neuro-monitoring tool, it includes realistic anomaly detection that lights up brain regions with confidence scores and places precise electrode markers when “events” occur.
 
 ## Live Demo
-[👉 here](https://neuro-signals.onrender.com/)
+Check it out 👉 [here](https://neuro-signals.onrender.com/)
 
 - **Frontend** and **Backend** (Web Socket): Render
 
