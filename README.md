@@ -77,7 +77,8 @@ neuro-signals/
 ├── server/               # Node.js + WebSocket EEG simulator
 ├── README.md
 └── LICENSE
-text## Customization
+
+## Customization
 
 - Replace `client/public/models/brain.glb` with any GLTF brain → markers auto-snap via raycasting  
 - Edit the `scenarios` array in `NeuroStreamContext.tsx` for new anomaly types  
